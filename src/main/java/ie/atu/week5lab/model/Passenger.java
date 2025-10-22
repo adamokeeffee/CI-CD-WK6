@@ -4,7 +4,11 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
-@Data @NoArgsConstructor @AllArgsConstructor @Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+//THIS WAS ADDED SO I CAN COMMIT FOR WK6
 public class Passenger {
     @NotBlank @Size(max = 40)
     private String passengerId;
