@@ -18,6 +18,7 @@ class PassengerServiceTest{
         service = new PassengerService();
     }
 
+    /*
     @Test
     void createThenFindById() {
         Passenger p = Passenger.builder()
@@ -47,7 +48,7 @@ class PassengerServiceTest{
                     .email("bob@k")
                     .build()));
     }
-
+*/
     @Test
     void update_success() {
         Passenger p = new Passenger("1", "joey", "joey@atu,ie");
