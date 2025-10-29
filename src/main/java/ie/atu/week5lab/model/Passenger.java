@@ -17,4 +17,5 @@ public class Passenger {
     @Email(message = "email must be a valid address")
     private String email;
 
+
 }

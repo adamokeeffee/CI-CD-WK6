@@ -1,5 +1,6 @@
 package ie.atu.week5lab.controller;
 
+import ie.atu.week5lab.errorHandling.PassengerNotFoundException;
 import ie.atu.week5lab.model.Passenger;
 import ie.atu.week5lab.service.PassengerService;
 import jakarta.validation.Valid;
@@ -50,13 +51,17 @@ public class PassengerController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete( @PathVariable String id) {
-        boolean deleted = service.delete(id);
-        return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+    public ResponseEntity<String> deletePassenger( @PathVariable String id) {
+        boolean removed = service.delete(id);
+        if(!removed){
+            throw new PassengerNotFoundException("Passenger with ID" + id + "not found");
+        }
+        return ResponseEntity.ok("Passenger deleted successfully");
     }
 
 }
 
 
 
-
+    //boolean deleted = service.delete(id);
+       //return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
